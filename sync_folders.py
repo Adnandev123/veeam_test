@@ -12,9 +12,9 @@ class SyncFolders:
         self.interval = interval
         self.logfile = logfile
 
+        # Create directories if doesn't exist
         if not os.path.exists(src):
             os.makedirs(src)
-
         if not os.path.exists(dst):
             os.makedirs(dst)
 
@@ -36,10 +36,12 @@ class SyncFolders:
             if os.path.isfile(src_path):
                 shutil.copy(src_path, dst_path)
                 logging.info(f"Copied file {src_path} to {dst_path}")
+                print(f"Copied file {src_path} to {dst_path}")
             # If it is a subfolder, create it in the dst folder
             elif os.path.isdir(src_path):
                 os.mkdir(dst_path)
                 logging.info(f"Created folder {dst_path}")
+                print(f"Created folder {dst_path}")
                 self.sync_folders(src_path, dst_path)
 
         # Iterate over the common files in both folders
@@ -53,6 +55,7 @@ class SyncFolders:
             # If the file has been modified, copy it to the dst folder
             shutil.copy(src_path, dst_path)
             logging.info(f"Updated file {src_path} in {dst_path}")
+            print(f"Updated file {src_path} in {dst_path}")
 
         # Iterate over the common subfolders in both folders
         for name in comparison.common_dirs:
@@ -67,10 +70,14 @@ class SyncFolders:
             if os.path.isfile(dst_path):
                 os.remove(dst_path)
                 logging.info(f"Removed file {dst_path}")
+                print(f"Removed file {dst_path}")
+
             # If it is a folder, delete it and its contents from the dst folder
             elif os.path.isdir(dst_path):
                 shutil.rmtree(dst_path)
                 logging.info(f"Removed folder {dst_path}")
+                print(f"Removed folder {dst_path}")
+
 
 
 if __name__ == '__main__':
@@ -94,9 +101,3 @@ if __name__ == '__main__':
             time.sleep(syncer.interval)
     except KeyboardInterrupt:
         print('program terminated.')
-
-
-
-
-
-
