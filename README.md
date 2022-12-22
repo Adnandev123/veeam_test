@@ -1,6 +1,5 @@
 # veeam_test
 ## sync_folders.py:
-===============================================
 
 This script contains a SyncFolders class that can be used to synchronize the contents of two folders. The class has a __init__ method that takes four arguments:
 
@@ -23,13 +22,12 @@ The script also contains a block of code at the bottom that sets up command line
 
 
 ## test_sync_folders.py:
-===============================================
 
 This script contains a test suite for the SyncFolders class defined in the sync_folders module. The test suite is defined by the TestSyncFolders class, which is a subclass of the unittest.TestCase class.
 
 The TestSyncFolders class has four test methods:
 
-test_same_folders: This test verifies that the sync_folders function does not make any changes to the folders if they are already synchronized.
+* test_same_folders: This test verifies that the sync_folders function does not make any changes to the folders if they are already synchronized.
 test_src_empty: This test verifies that the sync_folders function removes files from the dst folder if they do not exist in the src folder.
 test_src_has_new_file: This test verifies that the sync_folders function copies new files from the src folder to the dst folder.
 test_src_modified_file: This test verifies that the sync_folders function updates modified files in the dst folder with the corresponding files from the src folder.
