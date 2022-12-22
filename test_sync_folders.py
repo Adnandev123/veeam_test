@@ -3,13 +3,9 @@ import os
 import tempfile
 import unittest
 import argparse
-import os
 import time
-import argparse
 import logging
 import filecmp
-import shutil
-
 
 from sync_folders import SyncFolders
 
