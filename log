@@ -1,0 +1,5 @@
+2022-12-22 17:46:04,372 - INFO - Copied file src\New Text Document.txt to rep\New Text Document.txt
+2022-12-22 17:46:09,377 - INFO - Copied file src\test.txt to rep\test.txt
+2022-12-22 17:46:09,377 - INFO - Removed file rep\New Text Document.txt
+2022-12-22 17:46:14,405 - INFO - Updated file src\test.txt in rep\test.txt
+2022-12-22 17:46:19,432 - INFO - Updated file src\test.txt in rep\test.txt
