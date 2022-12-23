@@ -38,7 +38,13 @@ class SyncFolders:
         )
 
     def sync_folders(self, src, dst):
-        """Synchronize the contents of the src folder with the dst folder."""
+        """Synchronize the contents of the src folder with the dst folder.
+
+        :param src: The source folder to synchronize.
+        :type src: String
+        :param dst: The replica folder to synchronize with the source.
+        :type dst: String
+        """
         # Compare the contents of the two folders
         comparison = filecmp.dircmp(src, dst)
 
