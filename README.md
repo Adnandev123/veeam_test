@@ -10,7 +10,7 @@ This script contains a SyncFolders class that can be used to synchronize the con
 
 The __init__ method sets up the class instance with these four arguments and also creates the src and dst folders if they do not exist. It also sets up logging using the logging module.
 
-The SyncFolders class has a sync_folders method that takes two arguments:
+The ``SyncFolders`` class has a sync_folders method that takes two arguments:
 
 * src: the source folder to synchronize
 * dst: the replica folder to synchronize with the source
