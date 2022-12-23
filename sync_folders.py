@@ -29,6 +29,7 @@ class SyncFolders:
             os.makedirs(src)
         if not os.path.exists(dst):
             os.makedirs(dst)
+            
         # Set up logging
         logging.basicConfig(
             level=logging.INFO,
@@ -63,6 +64,7 @@ class SyncFolders:
                 logging.info(f"Created folder {dst_path}")
                 print(f"Created folder {dst_path}")
                 self.sync_folders(src_path, dst_path)
+                
         # Iterate over the common files in both folders
         for name in comparison.common_files:
             src_path = os.path.join(src, name)
@@ -75,11 +77,13 @@ class SyncFolders:
             shutil.copy(src_path, dst_path)
             logging.info(f"Updated file {src_path} in {dst_path}")
             print(f"Updated file {src_path} in {dst_path}")
+            
         # Iterate over the common subfolders in both folders
         for name in comparison.common_dirs:
             src_path = os.path.join(src, name)
             dst_path = os.path.join(dst, name)
             self.sync_folders(src_path, dst_path)
+            
         # Iterate over the files and folders that exist in the dst but not in the src
         for name in comparison.right_only:
             dst_path = os.path.join(dst, name)
