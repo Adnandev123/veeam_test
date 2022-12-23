@@ -113,6 +113,7 @@ if __name__ == "__main__":
 
     print("press cntrl+c to exit program.")
 
+    # Start synchronization
     try:
         while True:
             syncer.sync_folders(syncer.src, syncer.dst)
