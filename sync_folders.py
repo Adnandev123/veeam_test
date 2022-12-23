@@ -8,6 +8,17 @@ import shutil
 
 class SyncFolders:
     def __init__(self, src, dst, interval, logfile):
+        """Initialize folder synchronization.
+        
+        :param src: The source folder to synchronize.
+        :type src: String
+        :param dst: The replica folder to synchronize with the source.
+        :type dst: String
+        :param interval: The synchronization interval in seconds.
+        :type interval: int
+        :param logfile: The file to log synchronization operations to.
+        :type logfile: String
+        """
         self.src = src
         self.dst = dst
         self.interval = interval
