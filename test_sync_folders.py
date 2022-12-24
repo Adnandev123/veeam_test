@@ -1,3 +1,6 @@
+"""
+This script contains a test suite for the ``SyncFolders`` class defined in the ``sync_folders`` module.
+"""
 import shutil
 import os
 import tempfile
