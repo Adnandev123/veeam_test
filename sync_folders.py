@@ -1,3 +1,6 @@
+"""
+This script contains a SyncFolders class that can be used to synchronize the contents of two folders.
+"""
 import os
 import time
 import argparse
