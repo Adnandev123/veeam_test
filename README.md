@@ -4,7 +4,7 @@ Run: ``python sync_folders.py src dst interval logfile``
 
 ## sync_folders.py:
 
-This script contains a SyncFolders class that can be used to synchronize the contents of two folders. The class has a __init__ method that takes four arguments:
+This script contains a ``SyncFolders`` class that can be used to synchronize the contents of two folders. The class has a ``__init__`` method that takes four arguments:
 
 * ``src``: the source folder to synchronize.
 * ``dst``: the replica folder to synchronize with the source.
