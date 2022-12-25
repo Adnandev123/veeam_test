@@ -12,7 +12,7 @@ import shutil
 class SyncFolders:
     def __init__(self, src, dst, interval, logfile):
         """Initialize folder synchronization.
-        
+
         :param src: The source folder to synchronize.
         :type src: String
         :param dst: The replica folder to synchronize with the source.
@@ -32,7 +32,7 @@ class SyncFolders:
             os.makedirs(src)
         if not os.path.exists(dst):
             os.makedirs(dst)
-            
+
         # Set up logging
         logging.basicConfig(
             level=logging.INFO,
@@ -67,7 +67,7 @@ class SyncFolders:
                 logging.info(f"Created folder {dst_path}")
                 print(f"Created folder {dst_path}")
                 self.sync_folders(src_path, dst_path)
-                
+
         # Iterate over the common files in both folders
         for name in comparison.common_files:
             src_path = os.path.join(src, name)
@@ -80,13 +80,13 @@ class SyncFolders:
             shutil.copy(src_path, dst_path)
             logging.info(f"Updated file {src_path} in {dst_path}")
             print(f"Updated file {src_path} in {dst_path}")
-            
+
         # Iterate over the common subfolders in both folders
         for name in comparison.common_dirs:
             src_path = os.path.join(src, name)
             dst_path = os.path.join(dst, name)
             self.sync_folders(src_path, dst_path)
-            
+
         # Iterate over the files and folders that exist in the dst but not in the src
         for name in comparison.right_only:
             dst_path = os.path.join(dst, name)
@@ -106,12 +106,8 @@ if __name__ == "__main__":
     # Set up command line arguments
     parser = argparse.ArgumentParser()
     parser.add_argument("source", help="the source folder to synchronize")
-    parser.add_argument(
-        "replica", help="the replica folder to synchronize with the source"
-    )
-    parser.add_argument(
-        "interval", type=int, help="the synchronization interval in seconds"
-    )
+    parser.add_argument("replica", help="the replica folder to synchronize with the source")
+    parser.add_argument("interval", type=int, help="the synchronization interval in seconds")
     parser.add_argument("logfile", help="the file to log synchronization operations to")
     args = parser.parse_args()
 
