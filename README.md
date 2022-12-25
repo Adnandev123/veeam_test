@@ -4,6 +4,8 @@ Run: ``python sync_folders.py src dst interval logfile``
 
 Run(for test): ``python test_sync_folders.py``
 
+Note: This repository contains git actions for CI which will run the unit tests automatically if any new push or pull request merged.
+
 ## sync_folders.py:
 
 This script contains a ``SyncFolders`` class that can be used to synchronize the contents of two folders. The class has a ``__init__`` method that takes four arguments:
