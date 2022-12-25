@@ -34,15 +34,14 @@ This script contains a test suite for the ``SyncFolders`` class defined in the `
 The ``TestSyncFolder``s class has following test methods:
 
 * ``test_same_folders``: This test verifies that the ``sync_folders`` function does not make any changes to the folders if they are already synchronized.
-* ``test_src_empty``: This test verifies that the ``sync_folders`` function removes files from the dst folder if they do not exist in the ``src`` folder.
+* ``test_src_empty``: This test verifies that the ``sync_folders`` function removes files from the ``dst`` folder if they do not exist in the ``src`` folder.
 * ``test_src_has_new_file``: This test verifies that the ``sync_folders`` function copies new files from the ``src`` folder to the ``dst`` folder.
 * ``test_src_modified_file``: This test verifies that the ``sync_folders`` function updates modified files in the dst folder with the corresponding files from the ``src`` folder.
-* ``test_dst_has_extra_file``: This method tests the case where the destination directory has an extra file that is not in the source directory.
 * ``test_src_has_new_folder``: This test verifies that the ``sync_folders`` function copies new folders from the ``src`` folder to the ``dst`` folder.
+* ``test_dst_has_extra_file``: This method tests the case where the destination directory has an extra file that is not in the source directory.
 * ``test_dst_has_extra_folder``: This method is similar to the ``test_dst_has_extra_file`` method, but it tests the case where the destination directory has an extra subdirectory.
+* ``test_src_modified_folder`: This method tests the case where a subdirectory in the source directory has been modified by adding a new file.
 
-The ``test_src_modified_folder`` method tests the case where a subdirectory in the source directory has been modified by adding a new file. The ``sync_folders`` function should copy the modified subdirectory and its contents to the destination directory. This is verified in the same way as in the ``test_src_has_new_folder``
-
-The ``TestSyncFolders`` class also has a setUp method that is run before each test case. This method creates a temporary directory and sets up the ``src`` and ``dst`` folders for testing. It also creates a ``SyncFolders`` object for testing.
+The ``TestSyncFolders`` class also has a ``setUp`` method that is run before each test case. This method creates a temporary directory and sets up the ``src`` and ``dst`` folders for testing. It also creates a ``SyncFolders`` object for testing.
 
 The ``TestSyncFolders`` class also has a ``tearDown`` method that is run after each test case. This method deletes the temporary directory.
