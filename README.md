@@ -18,20 +18,20 @@ The ``SyncFolders`` class has a sync_folders method that takes two arguments:
 * ``src``: the source folder to synchronize.
 * ``dst``: the replica folder to synchronize with the source.
 
-This method compares the contents of the two folders using the filecmp module and synchronizes them by iterating over the files and folders in the src folder and:
+This method compares the contents of the two folders using the ``filecmp`` module and synchronizes them by iterating over the files and folders in the ``src`` folder and:
 
 * Copying new files and folders from the ``src`` folder to the ``dst`` folder.
 * Updating modified files in the ``dst`` folder with the corresponding files from the ``src`` folder.
 * Removing files and folders from the ``dst`` folder that do not exist in the ``src`` folder.
 
-The script also contains a block of code at the bottom that sets up command line arguments using the argparse module and creates a ``SyncFolders`` object using these arguments. It then enters an infinite loop where it synchronizes the ``src`` and ``dst`` folders every interval seconds using the time module's sleep function.
+The script also contains a block of code that sets up command line arguments using the argparse module and creates a ``SyncFolders`` object using these arguments. It then enters an infinite loop where it synchronizes the ``src`` and ``dst`` folders every ``interval`` seconds using the time module's sleep function.
 
 
 ## test_sync_folders.py:
 
-This script contains a test suite for the ``SyncFolders`` class defined in the sync_folders module. The test suite is defined by the ``TestSyncFolders`` class, which is a subclass of the unittest.TestCase class.
+This script contains a test suite for the ``SyncFolders`` class defined in the ``sync_folders`` module. The test suite is defined by the ``TestSyncFolders`` class, which is a subclass of the unittest.TestCase class.
 
-The TestSyncFolders class has following test methods:
+The ``TestSyncFolder``s class has following test methods:
 
 * ``test_same_folders``: This test verifies that the ``sync_folders`` function does not make any changes to the folders if they are already synchronized.
 * ``test_src_empty``: This test verifies that the ``sync_folders`` function removes files from the dst folder if they do not exist in the ``src`` folder.
