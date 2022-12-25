@@ -1,6 +1,7 @@
 # veeam_test
 
 Run: ``python sync_folders.py src dst interval logfile``
+Run(for test): ``python test_sync_folders.py``
 
 ## sync_folders.py:
 
