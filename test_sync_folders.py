@@ -15,6 +15,7 @@ from sync_folders import SyncFolders
 
 class TestSyncFolders(unittest.TestCase):
     def setUp(self):
+        """Run before each test case."""
         # Create a temporary directory for testing
         self.test_dir = tempfile.TemporaryDirectory()
         # Define the src and dst paths
@@ -29,10 +30,12 @@ class TestSyncFolders(unittest.TestCase):
         open(os.path.join(self.dst, "test.txt"), "w").close()
 
     def tearDown(self):
+        """Run after each test case."""
         # Delete the temporary directory after the test case is done
         self.test_dir.cleanup()
 
     def test_same_folders(self):
+        """This test verifies that the ``sync_folders`` function does not make any changes to the folders if they are already synchronized."""
         # Run the sync_folders function
         self.syncer.sync_folders(self.src, self.dst)
         # Verify that the function did not make any changes to the folders
@@ -42,6 +45,7 @@ class TestSyncFolders(unittest.TestCase):
         self.assertEqual(filecmp.dircmp(self.src, self.dst).common_files, [])
 
     def test_src_empty(self):
+        """This test verifies that the ``sync_folders`` function removes files from the ``dst`` folder if they do not exist in the ``src`` folder."""
         # Create a file in the dst folder
         open(os.path.join(self.dst, "test.txt"), "w").close()
         # Run the sync_folders function
@@ -53,6 +57,7 @@ class TestSyncFolders(unittest.TestCase):
         self.assertEqual(filecmp.dircmp(self.src, self.dst).common_files, [])
 
     def test_src_has_new_file(self):
+        """This test verifies that the ``sync_folders`` function copies new files from the ``src`` folder to the ``dst`` folder."""
         # Create a file in the src folder
         open(os.path.join(self.src, "test.txt"), "w").close()
         # Run the sync_folders function
@@ -64,6 +69,7 @@ class TestSyncFolders(unittest.TestCase):
         self.assertEqual(filecmp.dircmp(self.src, self.dst).common_files, ["test.txt"])
 
     def test_src_modified_file(self):
+        """This test verifies that the ``sync_folders`` function updates modified files in the dst folder with the corresponding files from the ``src`` folder."""
         # Create a file in both the src and dst folders
         src_file = open(os.path.join(self.src, "test.txt"), "w")
         src_file.write("test")
@@ -85,6 +91,7 @@ class TestSyncFolders(unittest.TestCase):
         dst_file.close()
 
     def test_src_has_new_folder(self):
+        """This test verifies that the ``sync_folders`` function copies new folders from the ``src`` folder to the ``dst`` folder."""
         # Create a folder in the src folder
         os.mkdir(os.path.join(self.src, "test"))
         # Run the sync_folders function
@@ -96,6 +103,7 @@ class TestSyncFolders(unittest.TestCase):
         self.assertEqual(filecmp.dircmp(self.src, self.dst).common_files, [])
 
     def test_dst_has_extra_file(self):
+        """This method tests the case where the destination directory has an extra file that is not in the source directory."""
         # Create a file in both the src and dst folders
         src_file = open(os.path.join(self.src, "test.txt"), "w")
         src_file.close()
@@ -109,6 +117,7 @@ class TestSyncFolders(unittest.TestCase):
         self.assertEqual
 
     def test_dst_has_extra_folder(self):
+        """This method is similar to the ``test_dst_has_extra_file`` method, but it tests the case where the destination directory has an extra subdirectory."""
         # Create a folder in both the src and dst folders
         os.mkdir(os.path.join(self.src, "test"))
         shutil.copytree(os.path.join(self.src, "test"), os.path.join(self.dst, "test"))
@@ -123,6 +132,7 @@ class TestSyncFolders(unittest.TestCase):
         self.assertEqual(filecmp.dircmp(self.src, self.dst).common_files, [])
 
     def test_src_modified_folder(self):
+        """ This method tests the case where a subdirectory in the source directory has been modified by adding a new file."""
         # Create a folder in both the src and dst folders
         os.mkdir(os.path.join(self.src, "test"))
         shutil.copytree(os.path.join(self.src, "test"), os.path.join(self.dst, "test"))
