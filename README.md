@@ -40,7 +40,7 @@ The ``TestSyncFolder``s class has following test methods:
 * ``test_src_has_new_folder``: This test verifies that the ``sync_folders`` function copies new folders from the ``src`` folder to the ``dst`` folder.
 * ``test_dst_has_extra_file``: This method tests the case where the destination directory has an extra file that is not in the source directory.
 * ``test_dst_has_extra_folder``: This method is similar to the ``test_dst_has_extra_file`` method, but it tests the case where the destination directory has an extra subdirectory.
-* ``test_src_modified_folder`: This method tests the case where a subdirectory in the source directory has been modified by adding a new file.
+* ``test_src_modified_folder``: This method tests the case where a subdirectory in the source directory has been modified by adding a new file.
 
 The ``TestSyncFolders`` class also has a ``setUp`` method that is run before each test case. This method creates a temporary directory and sets up the ``src`` and ``dst`` folders for testing. It also creates a ``SyncFolders`` object for testing.
 
